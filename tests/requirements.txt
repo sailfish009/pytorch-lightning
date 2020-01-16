@@ -5,5 +5,10 @@ pytest>=3.0.5
 pytest-cov
 flake8
 check-manifest
-test_tube
+# test_tube  # already installed in main req.
 mlflow
+comet_ml
+wandb
+neptune-client
+twine==1.13.0
+pillow<7.0.0

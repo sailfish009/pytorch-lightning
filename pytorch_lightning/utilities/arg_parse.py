@@ -7,7 +7,6 @@ import os
 
 
 def add_default_args(parser, root_dir, rand_seed=None, possible_model_names=None):
-
     # training, test, val check intervals
     parser.add_argument('--eval_test_set', dest='eval_test_set', action='store_true',
                         help='true = run test set also')
@@ -16,8 +15,10 @@ def add_default_args(parser, root_dir, rand_seed=None, possible_model_names=None
     parser.opt_list('--accumulate_grad_batches', default=1, type=int, tunable=False,
                     help='accumulates gradients k times before applying update.'
                          ' Simulates huge batch size')
-    parser.add_argument('--max_nb_epochs', default=200, type=int, help='cap epochs')
-    parser.add_argument('--min_nb_epochs', default=2, type=int, help='min epochs')
+    parser.add_argument('--max_epochs', default=200, type=int,
+                        help='maximum number of epochs')
+    parser.add_argument('--min_epochs', default=2, type=int,
+                        help='minimum number of epochs')
     parser.add_argument('--train_percent_check', default=1.0, type=float,
                         help='how much of training set to check')
     parser.add_argument('--val_percent_check', default=1.0, type=float,
@@ -82,7 +83,7 @@ def add_default_args(parser, root_dir, rand_seed=None, possible_model_names=None
     parser.add_argument('--enable_tqdm', dest='enable_tqdm', default=False, action='store_true',
                         help='false removes the progress bar')
     parser.add_argument('--overfit', default=-1, type=float,
-                        help='% of dataset to use with this option. float, or -1 for none')
+                        help='%% of dataset to use with this option. float, or -1 for none')
 
     # debug args
     if rand_seed is not None:
